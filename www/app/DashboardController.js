@@ -79,8 +79,8 @@ define(['app'], function (app) {
 		}
 
 		EvohomePopupMenu = function (item, strclass) {
-			var htm = '\t      <td id="img" class="img img1"><a href="#evohome" id="evohome_' + item.idx + '">' + EvohomeImg(item, strclass) + '</a></td>\n<span class="' + strclass + '"><div id="evopop_' + item.idx + '" class="ui-popup ui-body-b ui-overlay-shadow ui-corner-all pop">  <ul class="ui-listview ui-listview-inset ui-corner-all ui-shadow">         <li class="ui-li-divider ui-bar-inherit ui-first-child">Choose an action</li>';
-			$.each([{ "name": "Normal", "data": "Auto" }, { "name": "Economy", "data": "AutoWithEco" }, { "name": "Away", "data": "Away" }, { "name": "Day Off", "data": "DayOff" }, { "name": "Custom", "data": "Custom" }, { "name": "Heating Off", "data": "HeatingOff" }], function (idx, obj) { htm += '<li><a href="#" class="ui-btn ui-btn-icon-right ui-icon-' + obj.data + '" onclick="SwitchModal(\'' + item.idx + '\',\'' + obj.name + '\',\'' + obj.data + '\',RefreshFavorites);deselect($(this),\'#evopop_' + item.idx + '\');return false;">' + obj.name + '</a></li>'; });
+			var htm = '\t      <td id="img" class="img img1"><div id="evohome_' + item.idx + '">' + EvohomeImg(item, strclass) + '</div></td>\n<span class="' + strclass + '"><div id="evopop_' + item.idx + '" class="ui-popup ui-body-b ui-overlay-shadow ui-corner-all pop">  <ul class="ui-listview ui-listview-inset ui-corner-all ui-shadow">         <li class="ui-li-divider ui-bar-inherit ui-first-child">Choose an action</li>';
+			$.each([{ "name": "Normal", "data": "Auto" }, { "name": "Economy", "data": "AutoWithEco" }, { "name": "Away", "data": "Away" }, { "name": "Day Off", "data": "DayOff" }, { "name": "Custom", "data": "Custom" }, { "name": "Heating Off", "data": "HeatingOff" }], function (idx, obj) { htm += '<li><div class="ui-btn ui-btn-icon-right ui-icon-' + obj.data + '" onclick="SwitchModal(\'' + item.idx + '\',\'' + obj.name + '\',\'' + obj.data + '\',RefreshFavorites);deselect($(this),\'#evopop_' + item.idx + '\');return false;">' + obj.name + '</div></li>'; });
 			htm += '</ul></div></span>';
 			return htm;
 		}
@@ -1367,7 +1367,7 @@ define(['app'], function (app) {
 								}
 							}
 						}); //security devices
-/*
+
 						//Gizmocuz: Don't know how did this ? But this should be under utility devices!
 						//Please do so
 
@@ -1419,7 +1419,7 @@ define(['app'], function (app) {
 								}
 							}
 						}); //evohome devices
-*/
+
 						//Utility Sensors
 						$.each(data.result, function (i, item) {
 							if (
@@ -3319,7 +3319,7 @@ define(['app'], function (app) {
 
 						//Gizmocuz: Don't know how did this ? But this should be under utility devices!
 						//Please do so
-/*
+
 						//evohome devices
 						jj = 0;
 						bHaveAddedDivider = false;
@@ -3409,7 +3409,7 @@ define(['app'], function (app) {
 						if (jj > 0) {
 							htmlcontent += '</section>';
 						}
-*/
+
 						//Utility Sensors
 						jj = 0;
 						bHaveAddedDivider = false;
