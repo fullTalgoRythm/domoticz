@@ -68,8 +68,10 @@ define(['app'], function (app) {
 			}
 			$.devIdx = idx;
 			$("#dialog-editsetpoint #devicename").val(unescape(name));
+			$("#dialog-editsetpoint #devicename").prop("disabled",true);
 			$("#dialog-editsetpoint #devicedescription").val(unescape(description));
-			$("#dialog-editsetpoint #setpoint").val(setpoint);
+			$("#dialog-editsetpoint #devicedescription").prop("disabled",true);
+			$("#dialog-editsetpoint #setpoint").val(setpoint).prop("type","number").prop("min","5").prop("max","35").prop("step","0.5");
 			if (mode.indexOf("Override") == -1)
 				$(":button:contains('Cancel Override')").attr("disabled", "d‌​isabled").addClass('ui-state-disabled');
 			else
@@ -90,7 +92,9 @@ define(['app'], function (app) {
 			}
 			$.devIdx = idx;
 			$("#dialog-editstate #devicename").val(unescape(name));
+			$("#dialog-editstate #devicename").prop("disabled",true);
 			$("#dialog-editstate #devicedescription").val(unescape(description));
+			$("#dialog-editstate #devicedescription").prop("disabled",true);
 			$("#dialog-editstate #state").val(state);
 			if (mode.indexOf("Override") == -1)
 				$(":button:contains('Cancel Override')").attr("disabled", "d‌​isabled").addClass('ui-state-disabled');
@@ -701,6 +705,13 @@ define(['app'], function (app) {
 
 					ctrl.EditState = function (fn) {
 						return EditState(item.idx, escape(item.Name), escape(item.Description), item.State, item.Status, item.Until, fn);
+					};
+						
+					ctrl.ImageClick = function() {
+						if (item.SubType == 'Zone')
+							return ctrl.EditSetPoint('ShowTemps');
+						else if (item.SubType == 'Hot Water')
+							return ctrl.EditState('ShowTemps');
 					};
 
 					$element.i18n();

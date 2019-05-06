@@ -17,7 +17,7 @@
                     <span ng-show="ctrl.displayChill() && (ctrl.displayTemp() || ctrl.displaySetPoint() || ctrl.displayState() || ctrl.displayHeat())">/</span>
                     <span ng-show="ctrl.displayChill()">{{item.Chill}}&#176; {{tempsign}}</span>
                 </td>
-                <td id="img"><img ng-src="images/{{ctrl.image()}}" height="48" width="48"></td>
+                <td id="img"><img ng-src="images/{{ctrl.image()}}" ng-click="ctrl.ImageClick()" height="48" width="48"></td>
                 <td id="status" class="ng-cloak">
                     <!-- NB : weird comments to avoid unwanted spaces due to new line -->
                     <span ng-show="ctrl.displaySetPoint()" data-i18n="Set Point">Set Point</span><span ng-show="ctrl.displaySetPoint() && ctrl.isSetPointOn()">: {{item.SetPoint}}&#176; {{tempsign}}, </span><span ng-show="ctrl.displaySetPoint() && !ctrl.isSetPointOn()">: Off, </span><!--
